@@ -19,6 +19,7 @@ Steps to start
 5. Now try accesing the http://127.0.0.1:8080/rolldice on the browser.
 6. Refer to the collector logs you will see the traces and span details. As config.yaml has it in debug mode you can something like this
 
+ ```
 Span #6
     Trace ID       : aa13323b5229c4075452f131c944e04f
     Parent ID      : 
@@ -42,3 +43,4 @@ Attributes:
      -> http.flavor: STRING(1.1)
      -> http.route: STRING(/rolldice)
      -> http.status_code: INT(200)
+ ```
