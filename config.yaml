@@ -1,0 +1,33 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+processors:
+  batch: #### Optional for trace batching for AppDynamics Cloud
+    send_batch_max_size: 1000
+    send_batch_size: 1000
+    timeout: 10s
+extensions: #### Mandatory for AppDynamics Cloud
+  oauth2client:
+    client_id: 
+    client_secret: xxx
+    token_url: xxx
+exporters:
+  logging:
+    loglevel: debug
+  otlphttp: #### Mandatory for AppDynamics Cloud
+    auth:
+      authenticator: oauth2client
+    traces_endpoint: xxx
+service:
+  extensions: #### Mandatory for AppD Cloud
+    - oauth2client
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [logging,otlphttp]
+  telemetry:
+    logs:
+      level: "debug"
