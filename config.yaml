@@ -10,7 +10,7 @@ processors:
     timeout: 10s
 extensions: #### Mandatory for AppDynamics Cloud
   oauth2client:
-    client_id: 
+    client_id: xxx
     client_secret: xxx
     token_url: xxx
 exporters:
